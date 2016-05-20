@@ -22,6 +22,7 @@ class PrivReader:
   def __init__(self, file_name):
     # self.wallet_filename = file_name
     self.decypted_priv_key = self._read_from_data(file_name)[0]
+    self.part_enc_master_key = self.decypted_priv_key[-32:]
     self.file_path = os.path.abspath(file_name)
     self.iter_count = self._read_from_data(file_name)[3]
     self.method = self._read_from_data(file_name)[2]
